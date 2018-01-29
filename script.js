@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
   /* Highlight a box */
   function highlight(color) {
   let box = "." + color;
@@ -13,7 +11,5 @@ $(document).ready(function() {
     }, 200);
   });
   }
-
-
 
 })
