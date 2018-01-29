@@ -1,16 +1,49 @@
-html { height: 100%; width: 100%; }
+html { height: 100%; width: 100%; background-color: #e7f3fa; font-family:
+'Roboto', sans-serif; cursor: default;} *.unselectable { -webkit-touch-callout: none;
+-webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none; }
+
+
 
 .game-grid {
   display: grid;
-  grid-template-columns: 20vmin 20vmin;
-  grid-template-rows: 20vmin 20vmin;
-  width: 40vmin;
+  grid-template-columns: 25vmin 25vmin;
+  grid-template-rows: 25vmin 25vmin;
+  width: 50vmin;
   grid-gap: 0.5vmin;
   margin: 0 auto;
-  margin-top: 30vmin;
+  margin-top: 2vh;
 }
 
-.color1 { background-color: rgb(184, 12, 9); opacity: 0.6; }
-.color2 { background-color: rgb(162, 215, 41); opacity: 0.6; }
-.color3 { background-color: rgb(40, 146, 215); opacity: 0.6; }
-.color4 { background-color: rgb(239, 118, 122); opacity: 0.6; }
+.color1 { background-color: rgb(184, 12, 9); opacity: 0.3; }
+.color2 { background-color: rgb(162, 215, 41); opacity: 0.3; }
+.color3 { background-color: rgb(40, 146, 215); opacity: 0.3; }
+.color4 { background-color: rgb(239, 118, 122); opacity: 0.3; }
+
+.menu {
+  margin-top: 5vmin;
+  font-size: 5vmin;
+  text-align: center;
+}
+.menu>p{
+  margin: 0;
+}
+
+.menu>p:hover{ color: rgb(184, 12,
+9); }
+
+.menu>.reset {
+
+}
+
+.upper-text {
+  margin-top: 15vmin;
+  font-size: 6vmin;
+  text-align: center;
+}
+
+.score { position: fixed; left: 0; bottom: 0; font-size: 3vmin; opacity: 0.6;
+color: #465e0f; font-weight: 500; }
+
+.score--current { position: fixed; right: 0; bottom: 0; font-size: 3vmin;
+opacity: 0.6; color: #0e5e5a; font-weight: 500; }
