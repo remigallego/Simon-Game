@@ -4,6 +4,12 @@ $(document).ready(function() {
   let colorPattern = [];
   let highscore = 0;
   let currentScore = 0;
+  let strict = false;
+
+  var audiocolor1 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+  var audiocolor2 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+  var audiocolor3 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+  var audiocolor4 = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
 
   /* Highlight a box */
   function highlight(color) {
@@ -34,14 +40,27 @@ $(document).ready(function() {
     for(let i = 0; i <= colorPattern.length ; i++)
     {
       setTimeout(function() {
-        highlight(colorPattern[i]);
-        if(i === colorPattern.length)
+
+        if(i === colorPattern.length) {
           playerTurn();
+        }
         else
+        {
           highlight(colorPattern[i]);
+          simonSound(colorPattern[i]);
+        }
       }, i*1300);
     }
   }
+
+  function simonSound(color) {
+  switch(color){
+    case 'color1': audiocolor1.play(); break;
+    case 'color2': audiocolor2.play(); break;
+    case 'color3': audiocolor3.play(); break;
+    case 'color4': audiocolor4.play(); break;
+  }
+}
 
   function playerTurn() {
     $(".upper-text").html("Play!");
@@ -53,9 +72,9 @@ $(document).ready(function() {
       if(c === colorPattern[i])
           {
             highlight(c);
+            simonSound(c);
             if(i === colorPattern.length - 1)
             {
-              updateCurrentScore();
               $(".upper-text").html("Well done!");
               if(updateHighScore(i) != (maxScore-1)) { // 5
                 $(".game-grid>div").off();
@@ -72,7 +91,14 @@ $(document).ready(function() {
       else
           {
             // ------------- Lose Message
+            if(strict) {
             loseGame();
+          }
+          else {
+            $(".game-grid>div").off();
+            $(".upper-text").html("Wrong, look again...");
+            patternAnim();
+          }
           }
     });
 
@@ -81,11 +107,12 @@ $(document).ready(function() {
   function computerTurn() {
     $(".upper-text").html("Wait...");
     colorPattern.push(randomColor());
+    updateCurrentCount();
     patternAnim();
   }
 
   function reset() {
-    updateCurrentScore(0);
+    updateCurrentCount(0);
     highscore = 0;
     colorPattern = [];
     setTimeout(function() {
@@ -98,9 +125,9 @@ $(document).ready(function() {
     setTimeout( function() {$(".game-grid>div").css("opacity", "0.3");}, 2000);
   }
 
-  function updateCurrentScore(k) {
+  function updateCurrentCount(k) {
     (k === 0 ? currentScore = 0 : currentScore = colorPattern.length);
-    $(".score--current").html("Score: " + currentScore);
+    $(".count").html("Count: " + currentScore);
   }
 
   function updateHighScore(k) {
@@ -132,6 +159,11 @@ $(document).ready(function() {
     $(".upper-text").html("Reset!");
     highlightAll();
     reset();
+  })
+  $(".menu>.strict").on("click", function() {
+    strict = !strict;
+    strict ? $(this).html("Strict Mode: ON") : $(this).html("Strict Mode: OFF");
+
   })
   $(".menu>.reset").hide();
 

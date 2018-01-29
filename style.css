@@ -4,7 +4,6 @@ html { height: 100%; width: 100%; background-color: #e7f3fa; font-family:
 -ms-user-select: none; user-select: none; }
 
 
-
 .game-grid {
   display: grid;
   grid-template-columns: 25vmin 25vmin;
@@ -32,9 +31,6 @@ html { height: 100%; width: 100%; background-color: #e7f3fa; font-family:
 .menu>p:hover{ color: rgb(184, 12,
 9); }
 
-.menu>.reset {
-
-}
 
 .upper-text {
   margin-top: 15vmin;
@@ -45,5 +41,19 @@ html { height: 100%; width: 100%; background-color: #e7f3fa; font-family:
 .score { position: fixed; left: 0; bottom: 0; font-size: 3vmin; opacity: 0.6;
 color: #465e0f; font-weight: 500; }
 
-.score--current { position: fixed; right: 0; bottom: 0; font-size: 3vmin;
-opacity: 0.6; color: #0e5e5a; font-weight: 500; }
+.count {
+  text-align: center;
+  font-size: 3vmin;
+  opacity: 0.6;
+  color: #0e5e5a;
+  font-weight: 500;
+}
+
+.strict {
+  font-family: 'Roboto', sans-serif;
+  width: 20vw;
+  font-size: 2vw;
+  background: white;
+  border: none;
+
+}
