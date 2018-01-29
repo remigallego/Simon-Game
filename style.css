@@ -51,9 +51,9 @@ color: #465e0f; font-weight: 500; }
 
 .strict {
   font-family: 'Roboto', sans-serif;
-  width: 20vw;
-  font-size: 2vw;
+  width: 30vmin;
+  font-size: 3vmin;
   background: white;
   border: none;
-
+  font-weight: 500;
 }
